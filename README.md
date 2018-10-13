@@ -1,12 +1,16 @@
-**These script in Python 3.6 are a small package to analyze fMRI signals. It is a collaborative work with Andrea Insabato, Vicente Pallarés, Gorka Zamora-López and Nikos Kouvaris. If you use this toolbox, please cite the relevant papers below.**
+**These scripts in Python 3.6 conform a small package to classify resting state fMRI time series from different vigilance stages by combining whole-brain modeling with machine learning tools. This package is based on the WBLEC_toolbox which has been modified and adapted.   
 
 ## Whole-brain linear effective connectivity (WBLEC) estimation 
 
-The script *ParameterEstimation.py* calculates the spatiotemporal functional connectivity for each session (or run) and subject from the BOLD time series. Then, it calls the model optimization (function in *WBLECmodel.py*) and stores the model estimates (effective connectivity matrix embedded in the Jacobian J and input variances Sigma) in an array.
-The data are:
-- BOLD time series in *ts_emp.npy*
-- structural connectivity in *SC_anat.npy*
-- ROI labels in *ROI_labels.npy*
+The script *ParameterEstimation.py* (adapted from WBLEC_toolbox) calculates the spatiotemporal functional connectivity matrices for each BOLD time series. Then, it calls the model optimization (function in *WBLECmodel.py*) and stores the model estimates (effective connectivity matrix embedded in the Jacobian J and input variances Sigma) in an array. 
+
+Input data:
+- Resting state fMRI time series for every subject, divided into four vigilance stages (awake, N1 sleep, N2 sleep, N3 sleep).
+- Structural connectivity matrix (corresponding to the AAL90 parcellation).
+- ROI labels (corresponding to the AAL90 parcellation).
+
+
+
 
 ## Classification
 
