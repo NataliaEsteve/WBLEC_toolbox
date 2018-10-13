@@ -1,6 +1,12 @@
-**These scripts in Python 3.6 conform a small package to classify resting state fMRI time series from different vigilance stages by combining whole-brain modeling with machine learning tools. This package is based on the WBLEC_toolbox which has been modified and adapted.   
+**These scripts in Python 3.6 conform a small package to classify resting state fMRI time series from different vigilance stages by combining whole-brain modeling with machine learning tools. This package is based on the WBLEC_toolbox which has been modified and adapted.  
 
-## Whole-brain linear effective connectivity (WBLEC) estimation 
+## fMRI-Sleep-Staging tool workflow
+1. Whole-brain linear effective connectivity (WBLEC) estimation using *ParameterEstimation.py* (which calls *WBLECmodel.py*)
+2. Functional connectivity measures similarity analysis using *SimilarityAnalysis.py*
+3. Machinne Learning Classification using *Classification.py*
+
+
+## 1. Whole-brain linear effective connectivity (WBLEC) estimation 
 
 The script *ParameterEstimation.py* (adapted from WBLEC_toolbox) calculates the spatiotemporal functional connectivity matrices for each BOLD time series. Then, it calls the model optimization (function in *WBLECmodel.py*) and stores the model estimates (effective connectivity matrix embedded in the Jacobian J and input variances Sigma) in an array. 
 
@@ -9,12 +15,22 @@ Input data:
 - Structural connectivity matrix (corresponding to the AAL90 parcellation).
 - ROI labels (corresponding to the AAL90 parcellation).
 
+Output:
+- Effective conectivity matrices EC (embedded in the Jacobian J) 
+- Spaciotemporal functional connectivity matrices (o-lag and 1-lag)
+- Input variances matrix Sigma
+- EC and Sigma masks 
+
+## 2. Functional connectivity measures similarity analysis 
+
+The script *SimilarityAnalysis.py* 
 
 
 
-## Classification
+## 3. Classification
 
 The script *Classification.py* compares the performances of two classifiers (multinomial linear regressor and 1-nearest-neighbor) in identifying subjects from EC taken as a biomarker.
+
 
 ## References
 
