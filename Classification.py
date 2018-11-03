@@ -8,6 +8,12 @@ Created on Fri Nov 24 11:46:02 2017
 Modifications by: Natalia Esteve 
 
 """
+# In this Python 3.6 script we perform:
+# 1. Feature Verctors: Calculate EC, FC0 and corrFC z-score feature vectors  
+# 2. Classification: Perform clasification using MLR, 1NN and SMV, coupled with EC, FC0 and corrFC feature vectors, and calculate accuracy using subject-wise cross validation  
+# 3. Data Visualization: plot classification performance and mean performance using several plit types (line, bar, histogram, violinplot)
+# 4. Calculate Confusion Matrix for MLR 
+
 import os
 import numpy as np
 import pandas as pd 
